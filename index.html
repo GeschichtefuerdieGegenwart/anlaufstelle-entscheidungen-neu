@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entscheidungen Leitfaden Anlaufstelle</title>
+<meta name="description" content="Entscheidungswerkzeug für die Sitzung am 05.10.2026: offene Punkte D1–D18 des Leitfadens zur Anlaufstelle für Diskriminierungsschutz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4EF; --surface:#FFFFFF; --surface-2:#ECEEEA; --ink:#1C2833; --text:#36424E; --muted:#5E6873; --line:#DDDAD0;
+  --yellow:#F6E3A1; --yellow-ink:#4D3900; --yellow-strong:#D9A520;
+  --green:#DDEFE3; --green-ink:#1E6B3F; --green-strong:#2E7D4F;
+  --blue:#DCE8F4; --blue-ink:#1E4E7C; --blue-strong:#2F6FA8;
+  --red:#F5DCD6; --red-ink:#8A2E20;
+  --grey:#E3E4E6; --grey-ink:#4B5058;
+  --focus:#2F6FA8; --shadow:0 1px 2px rgba(28,40,51,.06),0 4px 14px rgba(28,40,51,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141A21; --surface:#1C242D; --surface-2:#232C36; --ink:#EEF0F2; --text:#CBD3DB; --muted:#98A3AE; --line:#33404C;
+    --yellow:#4A3D12; --yellow-ink:#F6E3A1; --green:#183A27; --green-ink:#A9DBBC; --blue:#1A3149; --blue-ink:#B9D3EE;
+    --red:#4A231C; --red-ink:#F2B9AC; --grey:#2C343D; --grey-ink:#C3CAD1; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141A21; --surface:#1C242D; --surface-2:#232C36; --ink:#EEF0F2; --text:#CBD3DB; --muted:#98A3AE; --line:#33404C;
+  --yellow:#4A3D12; --yellow-ink:#F6E3A1; --green:#183A27; --green-ink:#A9DBBC; --blue:#1A3149; --blue-ink:#B9D3EE;
+  --red:#4A231C; --red-ink:#F2B9AC; --grey:#2C343D; --grey-ink:#C3CAD1; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;color:var(--ink);line-height:1.15;margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+a{color:var(--blue-ink)}
+
+/* Layout */
+.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow:auto;background:var(--surface);border-right:1px solid var(--line);padding:22px 18px 28px}
+.main{padding:28px clamp(16px,4vw,56px) 80px;max-width:1080px;width:100%}
+.brand{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.side h1{font-size:21px;margin:6px 0 14px}
+.progress{margin:6px 0 18px}
+.bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--green-strong);width:0;transition:width .3s}
+.progress p{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.nav{list-style:none;margin:0;padding:0}
+.nav .grp{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:16px 6px 6px}
+.nav a{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:8px;text-decoration:none;color:var(--text);font-size:14.5px}
+.nav a:hover{background:var(--surface-2)}
+.nav a.active{background:var(--blue);color:var(--blue-ink);font-weight:600}
+.dot{flex:none;width:28px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:11.5px;font-weight:600;background:var(--surface-2);color:var(--muted)}
+.dot.done{background:var(--green);color:var(--green-ink)}
+.dot.later{background:var(--grey);color:var(--grey-ink)}
+.side-actions{display:grid;gap:8px;margin-top:20px}
+.mobilebar{display:none}
+
+/* Buttons & pills */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:500;font-size:14.5px}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{opacity:.9}
+.btn.small{padding:6px 10px;font-size:13.5px}
+.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+.p-yellow{background:var(--yellow);color:var(--yellow-ink)} .p-green{background:var(--green);color:var(--green-ink)}
+.p-blue{background:var(--blue);color:var(--blue-ink)} .p-red{background:var(--red);color:var(--red-ink)}
+.p-grey{background:var(--grey);color:var(--grey-ink)} .p-ink{background:var(--ink);color:var(--bg)}
+
+/* Sections */
+section.view{display:none}
+section.view.on{display:block;animation:fade .2s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.eyebrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.hero h2{font-size:clamp(30px,4vw,44px);margin-bottom:12px}
+.lead{font-size:18px;max-width:70ch;color:var(--text)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat h3{font-size:32px;margin:2px 0 4px}
+.stat p{margin:0;font-size:14.5px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+label.f{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 5px}
+input[type=text],input[type=date],textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+textarea{min-height:76px;resize:vertical}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields .full{grid-column:1/-1}
+
+/* Decision */
+.dhead h2{font-size:clamp(26px,3.2vw,34px);margin:4px 0 8px}
+.question{font-size:18px;color:var(--ink);margin:0 0 18px;max-width:70ch}
+.context{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-bottom:22px}
+.quote{border-left:5px solid var(--muted);background:var(--surface);border-radius:10px;padding:14px 16px;font-style:italic;font-size:15px}
+.issue{border-left:5px solid var(--red-ink);background:var(--surface);border-radius:10px;padding:14px 16px;font-size:15px}
+.issue ul{margin:6px 0 0;padding-left:18px}
+.blocklabel{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opt{position:relative;text-align:left;cursor:pointer;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s, transform .15s, box-shadow .15s}
+.opt:hover{border-color:var(--blue-strong);transform:translateY(-1px)}
+.opt[aria-pressed="true"]{border-color:var(--green-strong);background:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green-strong) 25%,transparent)}
+.opt .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.letter{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;background:var(--surface-2);color:var(--ink)}
+.opt[aria-pressed="true"] .letter{background:var(--green-strong);color:#fff}
+.opt .kern{font-weight:500;color:var(--ink);font-size:15.5px}
+.pc{font-size:14px;margin:0}
+.pc b{display:inline-block;min-width:16px}
+.plus{color:var(--green-ink)} .minus{color:var(--red-ink)}
+.check{display:none;margin-top:auto;font-size:13px;font-weight:600;color:var(--green-ink)}
+.opt[aria-pressed="true"] .check{display:block}
+.alt{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 14px;cursor:pointer;font-weight:500;font-size:14.5px}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.chip.vert[aria-pressed="true"]{border-color:var(--grey-ink);background:var(--grey);color:var(--grey-ink)}
+.rec{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border-radius:12px;padding:12px 14px;margin:18px 0}
+.rec p{margin:0;font-size:15px}
+.protocol{margin-top:6px}
+.protocol h3{font-size:20px;margin:0 0 12px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:8px 13px;cursor:pointer;font-size:14.5px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--blue-ink);font-weight:600}
+.votes{display:none;gap:10px;margin-top:10px}
+.votes.on{display:flex}
+.votes input{width:76px}
+.legal{background:var(--red);color:var(--red-ink);border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.legal p{margin:0;font-size:14.5px;max-width:62ch}
+.legal label{display:flex;gap:8px;align-items:center;font-size:14.5px;font-weight:600}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.hint{font-size:13px;color:var(--muted)}
+kbd{font:12px/1 'IBM Plex Sans',sans-serif;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:2px 5px;background:var(--surface)}
+
+/* Summary */
+table.sum{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;font-size:14.5px}
+table.sum th,table.sum td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.sum th{background:var(--surface-2);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.res{font-weight:600}
+.res.none{color:var(--muted);font-weight:400}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.blockhead{margin:30px 0 10px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.blocklist{display:grid;gap:10px}
+.bitem{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;width:100%}
+.bitem:hover{border-color:var(--blue-strong)}
+.bitem .t{flex:1}
+.bitem .t b{color:var(--ink)}
+.bitem .t span{display:block;font-size:13.5px;color:var(--muted)}
+
+/* Print report (hidden on screen) */
+#report{display:none}
+
+@media (max-width:980px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+  .mobilebar{display:flex;position:sticky;top:0;z-index:5;gap:8px;align-items:center;background:var(--surface);border-bottom:1px solid var(--line);padding:10px 16px}
+  .mobilebar select{flex:1;min-width:0;border:1px solid var(--line);border-radius:9px;padding:8px;background:var(--surface)}
+  .opts,.grid3,.context,.grid2,.fields{grid-template-columns:1fr}
+}
+
+@media print{
+  @page{size:A4;margin:16mm 15mm}
+  body{background:#fff;color:#111;font-size:10.5pt}
+  .app,.mobilebar{display:none !important}
+  #report{display:block}
+  #report h1{font-size:18pt;margin:0 0 4pt}
+  #report h2{font-size:13pt;margin:14pt 0 6pt;color:#1C2833}
+  #report .meta{width:100%;border-collapse:collapse;margin:8pt 0 4pt}
+  #report .meta td{border:1px solid #bbb;padding:4pt 6pt;vertical-align:top}
+  #report .meta td:first-child{width:28%;background:#f0f1ee;font-weight:600}
+  #report table.rt{width:100%;border-collapse:collapse;font-size:9.5pt}
+  #report table.rt th,#report table.rt td{border:1px solid #bbb;padding:4pt 5pt;text-align:left;vertical-align:top}
+  #report table.rt th{background:#ECEEEA}
+  #report .dec{break-inside:avoid;border:1px solid #bbb;border-radius:4pt;padding:7pt 9pt;margin:0 0 7pt}
+  #report .dec h3{font-size:11pt;margin:0 0 3pt;font-family:'Source Serif 4',Georgia,serif}
+  #report .dec p{margin:2pt 0}
+  #report .k{color:#555}
+  #report .small{font-size:9pt;color:#555}
+}
+</style>
+</head>
+<body>
+
+<div class="mobilebar">
+  <select id="mnav" aria-label="Abschnitt wählen"></select>
+  <button class="btn small" data-go="next" aria-label="Weiter">Weiter</button>
+</div>
+
+<div class="app">
+  <aside class="side" aria-label="Navigation">
+    <div class="brand">Sitzung 05.10.2026</div>
+    <h1>Leitfaden Anlaufstelle: Entscheidungen</h1>
+    <div class="progress">
+      <div class="bar" aria-hidden="true"><span id="pbar"></span></div>
+      <p id="ptext">0 von 18 entschieden</p>
+    </div>
+    <ul class="nav" id="nav"></ul>
+    <div class="side-actions">
+      <button class="btn primary" data-go="summary">Ergebnisse und PDF</button>
+      <button class="btn small" id="theme">Hell/Dunkel</button>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <section class="view" id="v-intro"></section>
+    <section class="view" id="v-setup"></section>
+    <div id="decisions"></div>
+    <section class="view" id="v-summary"></section>
+  </main>
+</div>
+
+<div id="report" aria-hidden="true"></div>
+
+<script>
+const BLOCKS = [
+ {id:'I', name:'Name, Auftrag und Zielgruppen', time:'8 Min.', method:'Konsensieren (D1), Daumenprobe (D2, D3)'},
+ {id:'II', name:'Beratungsverständnis und Abgrenzung', time:'8 Min.', method:'Konsens-Check'},
+ {id:'III', name:'Vertraulichkeit, Fürsorge, Schutzpflichten', time:'15 Min.', method:'Konsens erforderlich'},
+ {id:'IV', name:'Zuständigkeiten, Doppelrollen, Schulleitung', time:'10 Min.', method:'Konsens-Check'},
+ {id:'V', name:'Zugang, Räume, Zeiten, Buchung', time:'12 Min.', method:'Konsensieren'},
+ {id:'VI', name:'Dokumentation und Datenschutz', time:'8 Min.', method:'Konsens erforderlich'},
+ {id:'VII', name:'Qualifizierung, Fallberatung, Supervision', time:'5 Min.', method:'Daumenprobe'},
+ {id:'VIII', name:'Verankerung und Ressourcen', time:'5 Min.', method:'Daumenprobe'},
+];
+const D = [
+{n:'D1',b:'I',title:'Name und Kürzel',q:'Welche Bezeichnung und welches Kürzel trägt die Anlaufstelle?',
+ draft:'„Dieser Leitfaden beschreibt, wie eine schulinterne Anlaufstelle (AAK) … aufgebaut … werden kann.“ – „Vermerk: Name der Beratungsstelle“. Im übrigen Text: „ADS“.',
+ issue:['Drei Bezeichnungen parallel: AAK, ADS, Antidiskriminierungsstelle','„ADS“ ist auch das Kürzel der Antidiskriminierungsstelle des Bundes und der LKBB-ADS','„Stelle“ klingt nach Behörde und Beschwerdeinstanz'],
+ o:{A:['„Antidiskriminierungsstelle (ADS)“','fachlich eindeutig, anschlussfähig','Verwechslung; wirkt behördlich'],
+    B:['„Anlaufstelle für Diskriminierungsschutz“, im Text „Anlaufstelle“, kein Kürzel','präzise, keine Verwechslung','wenig einprägsam für Aushänge'],
+    C:['wie B, plus einladender Rufname für Aushänge, Auswahl mit der SMV','niedrigschwellig, Beteiligung der Schüler*innen','zusätzlicher Schritt; Rufname darf Auftrag nicht verschleiern']},
+ emp:'C',why:'Klarer Formalname ohne Verwechslungsgefahr, dazu ein Rufname, den Schüler*innen mitgestalten.',
+ besch:'Die Anlaufstelle trägt die Bezeichnung „Anlaufstelle für Diskriminierungsschutz an der [Schule]“. Im Leitfaden wird einheitlich „Anlaufstelle“ verwendet; die Kürzel „ADS“ und „AAK“ entfallen. Ein Rufname für den Außenauftritt wird unter Beteiligung der SMV bis [Datum] vorgeschlagen und vom Team beschlossen.',e:'E1',legal:null},
+{n:'D2',b:'I',title:'Beratung von Lehrkräften',q:'Ob und in welchem Umfang berät die Anlaufstelle Lehrkräfte?',
+ draft:'Tabelle 5.1: „Lehrkräfte – Bedingt möglich – Peer-Beratung … (Fachberatung) sowie mögliche erste Anlaufstelle bei eigenen Diskriminierungserfahrungen mit Verweis an externe AGG-Beschwerdestelle“. Abschnitt 5.4: nur Überschrift.',
+ issue:['Abschnitt 5.4 fehlt; „Fach-“ und „Fallberatung“ uneinheitlich','Für Beschäftigte gilt das AGG (§ 13 Beschwerderecht)','Doppelrolle: Kolleg*innen beraten Kolleg*innen'],
+ o:{A:['Fachberatung und erste Anlaufstelle bei eigener Betroffenheit, ohne Grenzen','deckt Bedarf im Kollegium','Kapazität, Rollenkonflikte'],
+    B:['Fachberatung; bei eigener Betroffenheit Orientierungsgespräch mit Verweis; keine Verfahrensbegleitung; Vorrang Schüler*innen','klare Rolle, Unterstützung bleibt erreichbar','weniger Begleitung für betroffene Lehrkräfte'],
+    C:['nur Fachberatung; eigene Betroffenheit über Infoblatt „Wege für Beschäftigte“','minimaler Aufwand, keine Doppelrolle','wirkt abweisend; widerspricht Ordnung § 3']},
+ emp:'B',why:'Lehrkräfte bekommen Orientierung, ohne dass die Anlaufstelle in dienstrechtliche Verfahren gerät.',
+ besch:'Die Anlaufstelle bietet Lehrkräften (1) kollegiale Fachberatung zum Umgang mit Diskriminierung im Schulalltag und (2) bei eigener Diskriminierungserfahrung ein vertrauliches Orientierungsgespräch mit Verweis an die zuständigen Stellen an. Eine Begleitung in dienst- oder arbeitsrechtlichen Verfahren erfolgt nicht. Bei Engpässen hat die Beratung von Schüler*innen Vorrang. Auswertung nach dem Pilotjahr.',e:'E2',legal:'Zuständige Beschwerdestelle nach § 13 AGG für Lehrkräfte an beruflichen Schulen in Baden-Württemberg'},
+{n:'D3',b:'I',title:'Azubis und Eltern Volljähriger',q:'Wie geht die Anlaufstelle mit Erfahrungen im Ausbildungsbetrieb und mit Eltern volljähriger Schüler*innen um?',
+ draft:'Tabelle 5.1: „Ausbilder*innen / Betriebe – Nicht zuständig – Keine schulische Zuständigkeit; Verweis an adis e.V., Kammer, Betriebsrat“. 5.3: „Bei Auszubildenden (volljährig) gelten besondere Datenschutzregeln“.',
+ issue:['Unklar, ob Azubis mit Betriebserfahrungen kommen dürfen','Im Betrieb gilt das AGG mit kurzer Frist (zwei Monate)','Eltern Volljähriger: Einwilligung ungeregelt'],
+ o:{A:['Betriebe nicht zuständig, pauschaler Verweis','klare Grenze','Azubis fühlen sich abgewiesen; Fristen verstreichen'],
+    B:['Azubis auch mit Betriebserfahrungen: zuhören, einordnen, Fristhinweis, Verweis; Eltern Volljähriger nur mit Einwilligung','niedrigschwellig, rechtlich sauber','Verweisnetz muss aktuell sein'],
+    C:['wie B, plus Kontakt zu Betrieb oder Kammer auf Wunsch','mehr Wirkung im Einzelfall','Rollenüberschreitung, Nähe zur Rechtsberatung']},
+ emp:'B',why:'Die Schule ist Brücke zwischen zwei Lernorten; Verweisberatung schützt Fristen ohne Rollenüberschreitung.',
+ besch:'Auszubildende können die Anlaufstelle auch mit Diskriminierungserfahrungen aus dem Ausbildungsbetrieb aufsuchen. Die Anlaufstelle hört zu, ordnet ein, weist auf Fristen hin und vermittelt zeitnah an spezialisierte Stellen; sie tritt nicht selbst gegenüber Betrieben auf. Betriebe sind keine Zielgruppe. Eltern volljähriger Schüler*innen werden nur mit deren Einwilligung beraten.',e:'E3',legal:'Informationsrechte von Eltern Minderjähriger gegenüber Beratungsinhalten'},
+{n:'D4',b:'II',title:'Parteiliche Haltung',q:'Wie formuliert der Leitfaden die parteiliche Haltung tragfähig?',
+ draft:'„Parteilichkeit für Betroffene – Die Perspektive der diskriminierten Person wird ernst genommen – Nicht neutral zwischen Betroffenen und Beschuldigten abwägen – das ist nicht Aufgabe der ADS“.',
+ issue:['Im Kollegium als Vorverurteilung lesbar','Lehrkräfte führen ihr Amt unparteiisch (§ 33 BeamtStG) – vereinbar, weil die Anlaufstelle nicht entscheidet','Akzeptanz ist Erfolgsfaktor'],
+ o:{A:['Begriff „Parteilichkeit“ wie im advd-Standard','fachlich präzise','Missverständnisse, Abwehr'],
+    B:['„Parteiliche Unterstützung der ratsuchenden Person“ plus Klarstellung: kein Urteil über Dritte','hält den Standard, erhöht Akzeptanz','etwas längerer Text'],
+    C:['„Allparteilichkeit“ bzw. Neutralität','hohe Akzeptanz im Kollegium','widerspricht advd, schwächt Betroffene']},
+ emp:'B',why:'Der Fachstandard bleibt erhalten und wird so erklärt, dass er im Kollegium trägt.',
+ besch:'Der Leitfaden verwendet den Begriff „parteiliche Unterstützung der ratsuchenden Person“ und ergänzt in Abschnitt 3.3 die Klarstellung, dass die Anlaufstelle weder Vorwürfe noch Personen bewertet und keine Entscheidungen über Dritte trifft.',e:'E4',legal:null},
+{n:'D5',b:'II',title:'Ebenenmodell und Sanktionen',q:'Wie grenzt sich die Anlaufstelle vom Beschwerde- und Maßnahmenweg ab?',
+ draft:'„Ebene 3: Schulleitung als offizielle Beschwerdestelle … Offene Fragen: Wie sieht eine Sanktionsleiter aus? … Handlungsempfehlungen seitens der Beratungsstellen können auf Nachfrage der Schulleitung mitgeteilt werden … ist zu klären, ob die Schulleitung oder eine übergeordnete Stelle die Beschwerde bearbeitet.“',
+ issue:['Ebenen 1 und 2 fehlen im Entwurf','„Auf Nachfrage der Schulleitung“ widerspricht 4.3','Sanktionen liegen bei Leitung und Konferenzen (§ 90 SchG BW)'],
+ o:{A:['Empfehlungen an die Leitung auf Nachfrage; Sanktionsleiter im Leitfaden','Expertise fließt in Maßnahmen','Rollenvermischung, Vertrauensverlust'],
+    B:['Vier-Ebenen-Modell; Anliegen nur auf Wunsch weitertragen; Maßnahmenkatalog als Vorhaben der Leitung','Rollenklarheit, Vertraulichkeit','Leitung erhält weniger Einzelfallwissen'],
+    C:['Anlaufstelle moderiert Klärungsgespräche selbst','schnelle Klärung','Mediationsrolle, widerspricht 4.2']},
+ emp:'B',why:'Beratung und Beschwerde bleiben getrennt – Kernstandard qualifizierter Antidiskriminierungsberatung.',
+ besch:'Der Leitfaden ergänzt ein Vier-Ebenen-Modell (Anlaufstelle – pädagogische Klärung auf Wunsch – formale Beschwerde bei Schulleitung bzw. Schulaufsicht – externe Stellen). Die Anlaufstelle gibt keine fallbezogenen Empfehlungen an die Schulleitung; Anliegen trägt sie nur auf ausdrücklichen Wunsch der ratsuchenden Person weiter. Ein pädagogisch ausgerichteter Maßnahmenkatalog wird der Schulleitung als eigenes Vorhaben vorgeschlagen.',e:'E5',legal:'Wer bearbeitet Beschwerden gegen die Schulleitung (Schulaufsicht, Regierungspräsidium)?'},
+{n:'D6',b:'III',title:'Grenzen der Vertraulichkeit',q:'In welchen Fällen gibt die Anlaufstelle Informationen ohne Zustimmung weiter?',
+ draft:'3.2: „Die schulische Fürsorgepflicht greift ausschließlich bei konkreter Kindeswohlgefährdung (§ 8a SGB VIII) oder akuter Selbst- oder Fremdgefährdung …“ – „Gibt es hier noch weitere?“',
+ issue:['Ausnahmen stehen an vier Stellen unterschiedlich','Für Lehrkräfte gelten § 4 KKG und § 85 Abs. 3 SchG BW','Volljährige ungeregelt; offen: § 138 StGB'],
+ o:{A:['zwei Ausnahmen pauschal','kurz, verständlich','rechtlich unpräzise, Volljährige unklar'],
+    B:['drei Fälle abschließend: Kindeswohl (Minderjährige), akute Gefahr, § 138 StGB; Grenzen zu Gesprächsbeginn nennen','präzise, transparent','längerer Text, Schulung nötig'],
+    C:['wie B, plus Weitergabe bei fortgesetzter Gefährdung Dritter','stärkerer Schutz Dritter','unklare Schwelle, weniger Vertrauen']},
+ emp:'B',why:'Ehrliche, präzise Grenzen schaffen mehr Vertrauen als absolute Versprechen.',
+ besch:'Die Vertraulichkeit wird nur in drei abschließend geregelten Fällen durchbrochen: Kindeswohlgefährdung bei Minderjährigen (§ 4 KKG, § 85 Abs. 3 SchG BW), akute Gefahr für Leben oder Gesundheit, Anzeigepflicht nach § 138 StGB. Die Grenzen werden zu Beginn jedes Gesprächs benannt. Abschnitt 3.2, Prinzipientabelle, Ordnung § 4, Erstkontakt-Checkliste und Aushang werden angeglichen.',e:'E6a–c',legal:'Option C (Gefährdung Dritter); Verhältnis zu § 37 BeamtStG'},
+{n:'D7',b:'III',title:'Verfahren bei Gefährdung',q:'Wer tut was, wenn eine Ausnahme vorliegt – bei Minderjährigen und Volljährigen?',
+ draft:'16.2: „Kindeswohlgefährdung (U18) → § 8a SGB VIII: Schulleitung informieren; Jugendamt einschalten; ADS begleitet auf Wunsch.“',
+ issue:['Zwischenschritte fehlen (zweite Meinung, insoweit erfahrene Fachkraft)','Vorgehen bei Volljährigen fehlt','Bezug zum schulischen Krisenplan fehlt'],
+ o:{A:['direkt Schulleitung und Jugendamt informieren','schnell, eindeutig','übergeht Betroffene; nicht gestuft'],
+    B:['gestuft: festhalten → zweite Berater*in → Fachkraft → Gespräch → Leitung, Jugendamt; akut sofort Notruf','rechtssicher, beteiligt Betroffene','Ablaufschema und Schulung nötig'],
+    C:['jeder Verdacht sofort an Leitung; Anlaufstelle steigt aus','maximale Entlastung','Beziehungsabbruch, nicht traumasensibel']},
+ emp:'B',why:'Entspricht § 4 KKG und der Orientierungshilfe des Landkreises Böblingen.',
+ besch:'Der Leitfaden ergänzt in 16.2 und als Anhang D ein gestuftes Verfahren bei Gefährdung, getrennt für Minderjährige und Volljährige, abgestimmt mit dem schulischen Krisen- und Kinderschutzkonzept und der Orientierungshilfe des Landkreises Böblingen.',e:'E7',legal:'Einbindung in das schulische Kinderschutzkonzept (falls vorhanden)'},
+{n:'D8',b:'IV',title:'Absicherung gegenüber der Leitung',q:'Wie wird die Unabhängigkeit von der Schulleitung abgesichert?',
+ draft:'4.3: „Die ADS unterrichtet die Schulleitung nicht über Namen, Inhalte oder Ergebnisse konkreter Beratungen. Das ist Voraussetzung für Vertrauen und muss institutionell abgesichert sein.“',
+ issue:['Berater*innen sind weisungsgebunden','Verschwiegenheit gilt nicht im dienstlichen Verkehr (§ 37 BeamtStG)','Unabhängigkeit muss vereinbart werden'],
+ o:{A:['Formulierung ohne weitere Absicherung','keine Verhandlung nötig','im Konfliktfall nicht belastbar'],
+    B:['schriftliche Vertraulichkeitsvereinbarung mit der Leitung, bestätigt durch die GLK','belastbar, transparent','Verhandlung mit der Leitung'],
+    C:['wie B, plus Vorwürfe gegen Leitungsmitglieder an externe Stellen','zusätzlicher Schutz','mehr Verweise']},
+ emp:'B',why:'Empfohlen ist B; bei Vorwürfen gegen Leitungsmitglieder zusätzlich der externe Verweis aus C.',
+ besch:'Die Koordination legt der Schulleitung bis [Datum] den Entwurf einer schriftlichen Vertraulichkeitsvereinbarung vor (Verzicht auf Einzelfallauskünfte und Einzelfallweisungen, Ausnahmen gemäß D6, anonymisierter Jahresbericht). Sie wird mit dem GLK-Beschluss bestätigt und rechtlich geprüft. Vorwürfe gegen Leitungsmitglieder gelten als Befangenheitsfall; auf Wunsch wird extern verwiesen.',e:'E8',legal:'Tragfähigkeit der Vereinbarung (§ 41 SchG BW, § 37 BeamtStG)'},
+{n:'D9',b:'IV',title:'Rolle der Schulsozialarbeit',q:'Welche Rolle übernimmt die Schulsozialarbeit?',
+ draft:'Kap. 1: „… betrieben durch engagierte Lehrkräfte und die Schulsozialarbeit …“; 6.1: „Eventuelle Büro der Schulsozialarbeit, zweimal die Woche mit nutzen …“; Ordnung § 2: „mindestens 3 Lehrkräften“.',
+ issue:['Mitbetreiberin oder Kooperationspartnerin?','Freier Träger mit eigenem Rechtsrahmen','Ressourcen der Schulsozialarbeit rückläufig'],
+ o:{A:['integriertes Team, Schulsozialarbeit berät mit','Beratungskompetenz','Trägerzustimmung, Ressourcen'],
+    B:['feste Kooperationspartnerin: Raum, Verweise, Fallberatung; Vereinbarung mit dem Träger','rollenklar, realistisch','weniger Präsenz im Angebot'],
+    C:['getrennte Angebote, nur gegenseitiger Hinweis','kein Abstimmungsaufwand','Raumfrage offen']},
+ emp:'B',why:'Nutzt Synergien und respektiert die unterschiedlichen Rechtsrahmen.',
+ besch:'Die Schulsozialarbeit ist feste Kooperationspartnerin, nicht Teil des Beratungsteams. Die Koordination stimmt bis [Datum] mit Schulsozialarbeit und Träger eine Kooperationsvereinbarung ab (Raumnutzung, Verweiswege, Datenschutz, Kinderschutz, Teilnahme an der Fallberatung). Kapitel 1 und 6.1 werden angepasst.',e:'E9',legal:'Getrennte Aufbewahrung von Unterlagen bei gemeinsamer Raumnutzung'},
+{n:'D10',b:'IV',title:'Befangenheit',q:'Reicht die Befangenheitsregel des Entwurfs?',
+ draft:'Ordnung § 6: „Bei Befangenheit (persönliche Beziehung zur beschuldigten Person, eigene Betroffenheit) übergibt die Berater*in den Fall ohne Nennung von Gründen an eine andere Berater*in.“',
+ issue:['Berater*in unterrichtet die ratsuchende Person','Vorwurf gegen ein Teammitglied','ganzes Team befangen'],
+ o:{A:['Regel wie im Entwurf','einfach','Lücken in typischen Fällen'],
+    B:['Entwurf plus Wahlrecht, Unterrichtsverhältnis, Vorwurf gegen Teammitglied, externe Verweisung','deckt typische Fälle ab','etwas mehr Abstimmung'],
+    C:['strikt: niemand berät eigene Schüler*innen','maximale Distanz','mit 3–5 Personen kaum umsetzbar']},
+ emp:'B',why:'Schließt die typischen Lücken, ohne das kleine Team zu überfordern.',
+ besch:'§ 6 der Ordnung und Abschnitt 5.2 werden ergänzt um das Wahlrecht der Ratsuchenden, den Umgang mit Unterrichts- und Bewertungsverhältnissen, Vorwürfe gegen Teammitglieder und die externe Verweisung, wenn das gesamte Team befangen ist.',e:'E10',legal:null},
+{n:'D11',b:'V',title:'Präsenzzeiten und Raum',q:'Mit welchem Präsenzmodell und in welchem Raum startet die Anlaufstelle?',
+ draft:'Stufe 1: „Feste Präsenzzeiten: 2× wöchentlich …“; Stufe 3: „Büro der Schulsozialarbeit … Pause am Mittwoch, Blöcke bis zu nächsten Ferien“; Aushang: „Sprechstunde Mittwochs“.',
+ issue:['„Stufe 3“ ist eine Raumfrage','2× wöchentlich oder mittwochs?','Kollision mit eigener Pausenaufsicht'],
+ o:{A:['2× wöchentlich offene Präsenz im Büro der Schulsozialarbeit','hohe Erreichbarkeit','personell kaum zu halten'],
+    B:['1 offene Zeit (Mi, große Pause) plus Termine; Blockplanung; Ausweitung nach dem Halbjahr','verlässlich, realistisch','geringere Präsenz zu Beginn'],
+    C:['eigener Beratungsraum mit 2 Präsenzzeiten','Sichtbarkeit','Raum fehlt, hoher Aufwand']},
+ emp:'B',why:'Verlässlichkeit ist für Vertrauen wichtiger als Häufigkeit.',
+ besch:'Die Anlaufstelle startet mit einer offenen Präsenzzeit (mittwochs, große Pause, Büro der Schulsozialarbeit – vorbehaltlich der Kooperationsvereinbarung) und terminierten Gesprächen nach Vereinbarung. Die Besetzung erfolgt in Blöcken bis zu den jeweils nächsten Ferien mit Vertretung. Eine zweite Präsenzzeit wird nach der Halbjahresauswertung geprüft.',e:'E11',legal:null},
+{n:'D12',b:'V',title:'Kontaktwege und Buchung',q:'Über welche Kanäle nehmen Ratsuchende Kontakt auf und buchen Termine?',
+ draft:'„Eventuelle Buchungsmodul über I-Serv für Termine …“ sowie Empfehlungen für meetergo, Zeeg und Cal.com mit Tabellen.',
+ issue:['IServ: personalisierte Anmeldung, keine anonyme Buchung','Externe Tools: Auftragsverarbeitung, Freigabe','Produktnamen veralten im Leitfaden'],
+ o:{A:['IServ-Buchungsmodul','bekannt, keine neuen Konten','nicht anonym'],
+    B:['externes Tool ohne Namensfeld','anonyme Buchung, QR-fähig','Vertrag, Freigabe, Kosten'],
+    C:['Start mit Präsenz, Briefkasten, Funktionspostfach; Tool nach Datenschutzprüfung','sofort startklar, datensparsam','weniger Komfort']},
+ emp:'C',why:'Startklar ohne Datenschutzrisiko; das Tool folgt nach geordneter Prüfung.',
+ besch:'Die Anlaufstelle startet mit offener Präsenz, Briefkasten und einem Funktionspostfach (Zugriff nur Beratungsteam). Ein digitales Buchungssystem wird nach datenschutzrechtlicher Prüfung (IServ-Modul oder externes Tool) bis [Datum] entschieden. Die Produkttabellen in 6.1 werden durch Prüfkriterien ersetzt.',e:'E12',legal:'Datenschutzprüfung des Buchungstools mit der/dem Datenschutzbeauftragten'},
+{n:'D13',b:'V',title:'Beratung in der Unterrichtszeit',q:'Wie finden Beratungen in der Unterrichtszeit vertraulich statt?',
+ draft:'„Beratung können während der Unterrichtszeit gebucht werden. Um Missbrauch zu verhindern, erstellt die Beratungsstelle einen Zettel mit Beratungszeit.“',
+ issue:['Zettel macht den Besuch sichtbar','Aufsichtspflicht','Rechtsgrundlage der Freistellung offen'],
+ o:{A:['Zettel der Anlaufstelle mit Uhrzeit','einfach','Anlass erkennbar'],
+    B:['neutraler Nachweis für alle Beratungsangebote; vorrangig Pausen, Randstunden','vertraulich, Aufsicht gewahrt','Abstimmung mit Leitung'],
+    C:['keine Beratung in der Unterrichtszeit','keine Regelung nötig','hohe Hürde in Teilzeitberufsschule']},
+ emp:'B',why:'Diskretion ist Kern der Niedrigschwelligkeit; gleiche Nachweise verhindern Rückschlüsse.',
+ besch:'Beratungen können während der Unterrichtszeit stattfinden, vorrangig in Pausen, Freistunden oder Randstunden. Grundlage ist ein neutraler Gesprächsnachweis ohne Angabe des Angebots, der für alle schulischen Beratungsangebote gilt. Die Regelung wird der Schulleitung zur Freigabe vorgelegt bzw. in die GLK eingebracht.',e:'E13',legal:'Grundlage der Freistellung (Schulbesuchsverordnung), Aufsichtspflicht'},
+{n:'D14',b:'VI',title:'Dokumentation',q:'Was wird dokumentiert – und wie bleibt es wirklich anonym?',
+ draft:'13.2: „Was dokumentiert werden darf (ohne Zustimmung): Datum und Dauer des Gesprächs, Diskriminierungsmerkmal, Handlungsweg, Verlauf“; Arbeitsnotiz: „Wer ist beschuldigt? Exel-Liste mit Datum“.',
+ issue:['Datum, Merkmal, Kontext oft wiedererkennbar','„Wer ist beschuldigt?“ erfasst Dritte','Speicherort, Löschung ungeregelt'],
+ o:{A:['Bogen wie im Entwurf','detailreich','Wiedererkennbarkeit'],
+    B:['Monat statt Datum, mehr Merkmale, Rolle nur als Kategorie, kein Freitext; Löschfristen','wirklich anonym, auswertbar','weniger Detail'],
+    C:['wie B, plus Fallakte nur bei Begleitung mit Einwilligung','ermöglicht Begleitung','zusätzliche Regeln']},
+ emp:'B',why:'Empfohlen ist B als Standard, ergänzt um C bei Begleitung mit schriftlicher Einwilligung.',
+ besch:'Dokumentiert wird mit dem überarbeiteten, datensparsamen Bogen: Monat statt Datum, erweiterter Merkmalskatalog, Rolle der verursachenden Seite nur als Kategorie, kein Freitext. Personenbezogene Unterlagen nur bei Begleitung und mit schriftlicher Einwilligung. Speicherort, Zugriff und Löschfristen legt das Team mit der/dem Datenschutzbeauftragten bis [Datum] fest.',e:'E14',legal:'Rechtsgrundlage, Einwilligungsfähigkeit Minderjähriger, Löschfristen'},
+{n:'D15',b:'VI',title:'Berichtswege',q:'Wer erhält welche Auswertung – und wie oft wird das Kollegium informiert?',
+ draft:'„Jahresbericht an die Schulleitungsteam und GLK“ vs. „für die Schulkonferenz“; „Kaffeetische-Kommunikation vierteljährig mit aktuellen Zahlen“.',
+ issue:['Adressaten widersprüchlich','Kleine Fallzahlen erlauben Rückschlüsse','Frequenz widersprüchlich'],
+ o:{A:['Jahresbericht plus vierteljährlicher Kaffeetisch mit Zahlen','hohe Sichtbarkeit','Wiedererkennbarkeit'],
+    B:['Bericht an Leitung und GLK; Werte unter 5 zusammengefasst; Kaffeetisch halbjährlich','sichtbar und datensicher','weniger Aktualität'],
+    C:['nur Jahresbericht','minimaler Aufwand','wenig Sichtbarkeit']},
+ emp:'B',why:'Strukturelle Rückmeldung ohne Rückschlüsse auf Einzelne.',
+ besch:'Der anonymisierte Jahresbericht geht an Schulleitung und GLK; die Schulkonferenz erhält ihn zur Kenntnis. Kategorien mit weniger als fünf Fällen werden nicht einzeln ausgewiesen. Ein Kaffeetisch-Format informiert das Kollegium halbjährlich über Themen und Angebote, ohne kleinteilige Fallzahlen.',e:'E15',legal:null},
+{n:'D16',b:'VII',title:'Qualifizierung',q:'Welche Qualifizierung ist Startbedingung, welcher Rhythmus gilt?',
+ draft:'11.2: Basis „verpflichtend“ mit Grundlagenseminar und Hospitation; Supervision „2× jährlich“; Fallberatung „monatlich“ – Notiz: „letzte Woche vor den Ferien, Dienstags 14 Uhr“.',
+ issue:['Rhythmus widersprüchlich','Hospitation braucht Zustimmung Ratsuchender','Anbieter und Kosten offen'],
+ o:{A:['Plan wie Entwurf, Fallberatung monatlich','hohe Qualität','Zeit und Kosten'],
+    B:['vor Start: Grundlagenseminar und interne Einführung; Fallberatung vor den Ferien; Supervision mind. 1×','realistisch, Mindeststandard','weniger Reflexionsdichte'],
+    C:['Maximalmodell mit monatlicher Supervision','höchste Qualität','nicht finanzierbar']},
+ emp:'B',why:'Sichert den Standard mit einem Rhythmus, den das Team halten kann.',
+ besch:'Voraussetzung für die Beratungstätigkeit ist die Basisqualifizierung (Grundlagenseminar und interne Einführung zu Leitfaden, Vertraulichkeit und Gefährdungsverfahren). Kollegiale Fallberatung findet in der letzten Woche vor den Ferien statt (dienstags, 14 Uhr), externe Supervision mindestens einmal jährlich. [Name] holt bis [Datum] Angebote und Kosten ein.',e:'E16',legal:null},
+{n:'D17',b:'VIII',title:'Ressourcen und Gremienweg',q:'Welche Ressourcen beantragt das Team – und über welchen Gremienweg?',
+ draft:'14.2: „Deputatstunden für ADS-Tätigkeit: mind. 1–2 Stunden pro Berater*in“; 15.1: „Zeitaufwand ca. 2–4 Std./Woche“.',
+ issue:['Deputat deckt den Aufwand nicht','Gremienfolge fehlt','Budgethöhe offen'],
+ o:{A:['1–2 Std. je Berater*in, ohne Reihenfolge','flexibel','unklarer Antrag'],
+    B:['Pilotjahr: Koordination 2 Std., je Berater*in 1 Std., Budget; Leitung → GLK → Schulkonferenz','konkret, prüfbar','Stunden müssen verfügbar sein'],
+    C:['Start ohne Deputat, Antrag später','sofort möglich','Überlastung']},
+ emp:'B',why:'Personenunabhängigkeit braucht gesicherte Zeit.',
+ besch:'Das Team beantragt bei der Schulleitung für das Pilotjahr 2 Anrechnungsstunden für die Koordination, je 1 Stunde pro Berater*in sowie ein Budget von [€ __] für Qualifizierung, Supervision und Material. Die Einrichtung wird der GLK am [Datum] zur Beschlussfassung vorgelegt; die Schulkonferenz wird informiert.',e:'E17',legal:'Zuständigkeiten von GLK und Schulkonferenz (§§ 44, 47 SchG BW)'},
+{n:'D18',b:'VIII',title:'Dokumentstruktur und Prävention',q:'Ein Dokument oder zwei – und welche Prävention gehört in die Endfassung?',
+ draft:'„12. Kollegiale Fallberatung (internes Dokument)“, „14. … (internes Dokument)“; Präventionstabelle gelb; „Peer-Botschafter*innen-Programm … eventuelles Zukunftsprojekt“.',
+ issue:['Bedeutung der Grünmarkierung offen','Interne Abläufe mischen sich mit Beschlussgrundlage','Prävention bindet Ressourcen'],
+ o:{A:['ein Gesamtdokument mit allen Präventionsformaten','alles an einem Ort','lang, Erwartungsdruck'],
+    B:['Konzeption für die GLK plus internes Handbuch; Pilotjahr: Infomaterial und Kurzvorstellung','klare Beschlussgrundlage','zwei Dokumente pflegen'],
+    C:['ein Dokument, Prävention gestrichen','kurz','Perspektive geht verloren']},
+ emp:'B',why:'Schlanke Beschlussgrundlage; Prävention bleibt als Perspektive sichtbar.',
+ besch:'Die Endfassung wird geteilt in „Konzeption“ (Beschlussgrundlage für die GLK) und „Arbeitshandbuch“ (intern). Im Pilotjahr umgesetzt werden Informationsmaterial und Kurzvorstellungen in Klassen; weitere Präventionsformate stehen als Perspektive im Leitfaden. Die grüne Markierung bedeutet „[…]“ und wird vor der Endfassung entfernt.',e:'E18',legal:null},
+];
+
+const KEY='anlaufstelle-entscheidungen-2026-10-05';
+let S = load();
+function blank(){return {meta:{datum:'05.10.2026',uhrzeit:'',ort:'',moderation:'',protokoll:'',anwesend:'',gruen:'',konsens:''},d:{}}}
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return x&&x.d?x:blank()}catch(e){return blank()}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){} updateProgress()}
+function st(n){return S.d[n]||(S.d[n]={choice:'',weg:'',ja:'',nein:'',enth:'',text:'',textEdited:false,note:'',who:'',due:'',pruef:false,pruefWer:''})}
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const decided=n=>{const c=(S.d[n]||{}).choice;return c&&c!=='vertagt'};
+
+const VIEWS=['intro','setup',...D.map(x=>x.n),'summary'];
+let cur='intro';
+
+function buildNav(){
+  const nav=document.getElementById('nav'), m=document.getElementById('mnav');
+  let h=`<li><a href="#intro" data-v="intro"><span class="dot">i</span>Einleitung</a></li><li><a href="#setup" data-v="setup"><span class="dot">0</span>Sitzung und Vorab</a></li>`;
+  let mo=`<option value="intro">Einleitung</option><option value="setup">Sitzung und Vorab</option>`;
+  BLOCKS.forEach(b=>{
+    h+=`<li class="grp">Block ${b.id} · ${b.time}</li>`;
+    mo+=`<optgroup label="Block ${b.id} · ${esc(b.name)}">`;
+    D.filter(d=>d.b===b.id).forEach(d=>{h+=`<li><a href="#${d.n}" data-v="${d.n}"><span class="dot" id="dot-${d.n}">${d.n}</span>${esc(d.title)}</a></li>`;mo+=`<option value="${d.n}">${d.n} · ${esc(d.title)}</option>`});
+    mo+='</optgroup>';
+  });
+  h+=`<li class="grp">Abschluss</li><li><a href="#summary" data-v="summary"><span class="dot">✓</span>Ergebnisse und PDF</a></li>`;
+  mo+=`<option value="summary">Ergebnisse und PDF</option>`;
+  nav.innerHTML=h; m.innerHTML=mo;
+  m.addEventListener('change',()=>go(m.value));
+}
+
+function renderIntro(){
+  document.getElementById('v-intro').innerHTML=`
+  <div class="hero">
+    <div class="eyebrow"><span class="pill p-yellow">Beschlusssitzung</span><span class="pill p-grey">Montag, 5. Oktober 2026</span></div>
+    <h2>Vom Entwurf zur Endfassung</h2>
+    <p class="lead">Der Leitfaden für die schulische Anlaufstelle für Diskriminierungsschutz steht kurz vor der Fertigstellung. Offen sind noch 18 Punkte. Sie stammen aus den gelben und grünen Markierungen im Entwurf, aus Arbeitsvermerken und aus Lücken, die den Betrieb der Anlaufstelle sonst verhindern würden.</p>
+    <p class="lead">Jede Entscheidung beginnt mit dem Wortlaut des Entwurfs. Darauf folgen drei Optionen mit Vor- und Nachteilen und eine begründete Empfehlung. Die Gruppe wählt eine Option, hält den Entscheidungsweg fest und übernimmt oder ändert den vorformulierten Beschlusstext.</p>
+  </div>
+  <div class="grid3">
+    <div class="card stat"><span class="pill p-yellow">Heute</span><h3>18</h3><p>Entscheidungen in acht Blöcken, rund 70 Minuten</p></div>
+    <div class="card stat"><span class="pill p-red">Rechtliche Prüfung</span><h3>${D.filter(d=>d.legal).length}</h3><p>Punkte mit externem oder rechtlichem Prüfbedarf</p></div>
+    <div class="card stat"><span class="pill p-green">Ziel</span><h3>PDF</h3><p>Beschlüsse am Ende als Protokoll ausgeben</p></div>
+  </div>
+  <div class="card">
+    <h3 style="font-size:20px;margin-bottom:8px">So funktioniert die Seite</h3>
+    <ul style="margin:0;padding-left:20px">
+      <li>Links bzw. oben die Entscheidungen anwählen; mit <kbd>←</kbd> <kbd>→</kbd> blättern.</li>
+      <li>Option per Klick oder mit den Tasten <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> wählen. Alternativ „Eigene Fassung“ oder „Vertagt“.</li>
+      <li>Eingaben werden nur in diesem Browser gespeichert und nicht übertragen.</li>
+      <li>Unter „Ergebnisse und PDF“ steht die Übersicht; „Als PDF speichern“ öffnet den Druckdialog.</li>
+    </ul>
+    <div class="legend">
+      <span class="pill p-ink">Empfehlung</span><span class="pill p-green">Gewählt</span><span class="pill p-red">Rechtliche Prüfung</span><span class="pill p-grey">Vertagt</span>
+    </div>
+    <div style="margin-top:16px"><button class="btn primary" data-go="setup">Sitzung starten</button></div>
+  </div>`;
+}
+
+function renderSetup(){
+  const m=S.meta;
+  const f=(k,l,full)=>`<div class="${full?'full':''}"><label class="f" for="m-${k}">${l}</label>${full?`<textarea id="m-${k}" data-meta="${k}">${esc(m[k])}</textarea>`:`<input type="text" id="m-${k}" data-meta="${k}" value="${esc(m[k])}">`}</div>`;
+  document.getElementById('v-setup').innerHTML=`
+  <div class="eyebrow"><span class="pill p-grey">Schritt 0</span><span class="pill p-yellow">5–12 Min.</span></div>
+  <h2 style="font-size:34px;margin-bottom:14px">Sitzung und Vorab-Klärungen</h2>
+  <div class="card"><div class="fields">
+    ${f('datum','Datum')}${f('uhrzeit','Uhrzeit')}${f('ort','Ort')}${f('moderation','Moderation')}${f('protokoll','Protokoll')}${f('anwesend','Anwesend',true)}
+  </div></div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <p class="blocklabel">Bedeutung der grünen Markierung</p>
+      <p style="margin:0 0 10px;font-size:15px">Im Entwurf gibt es keine blauen Markierungen, nur Gelb und Grün (Kap. 12, 14, 15, 16).</p>
+      <div class="seg" role="group" aria-label="Bedeutung Grün">${['inhaltlich konsentiert','internes Dokument','beides'].map(v=>`<button data-gruen="${v}" aria-pressed="${m.gruen===v}">${v}</button>`).join('')}</div>
+    </div>
+    <div class="card">
+      <p class="blocklabel">Konsens-Paket</p>
+      <p style="margin:0 0 10px;font-size:15px">Kernauftrag, Abgrenzung, advd-Standards, Primärzielgruppe, Gesprächsablauf, Verweisberatung, Fallberatung, Verankerung.</p>
+      <div class="seg" role="group" aria-label="Konsens-Paket">${['en bloc bestätigt','mit Ausnahmen bestätigt','nicht bestätigt'].map(v=>`<button data-konsens="${v}" aria-pressed="${m.konsens===v}">${v}</button>`).join('')}</div>
+      <label class="f" for="m-konsensnote" style="margin-top:10px">Ausnahmen</label><input type="text" id="m-konsensnote" data-meta="konsensnote" value="${esc(m.konsensnote)}">
+    </div>
+  </div>
+  <div class="pager"><button class="btn" data-go="prev">Zurück</button><button class="btn primary" data-go="next">Weiter zu D1</button></div>`;
+}
+
+function renderDecision(d){
+  const s=st(d.n), blk=BLOCKS.find(b=>b.id===d.b);
+  const opt=k=>{const o=d.o[k];return `<button class="opt" data-opt="${k}" aria-pressed="${s.choice===k}">
+      <span class="top"><span class="letter">${k}</span>${k===d.emp?'<span class="pill p-ink">Empfehlung</span>':(k==='A'?'<span class="pill p-grey">Entwurf</span>':'<span class="pill p-blue">Alternative</span>')}</span>
+      <span class="kern">${esc(o[0])}</span>
+      <span class="pc plus"><b>+</b> ${esc(o[1])}</span>
+      <span class="pc minus"><b>−</b> ${esc(o[2])}</span>
+      <span class="check">✓ Gewählt</span>
+    </button>`};
+  const sec=document.createElement('section');
+  sec.className='view'; sec.id='v-'+d.n;
+  sec.innerHTML=`
+  <div class="dhead">
+    <div class="eyebrow"><span class="pill p-yellow">Beschluss heute</span><span class="pill p-grey">Block ${blk.id} · ${esc(blk.name)}</span><span class="hint">${blk.time} · ${esc(blk.method)}</span></div>
+    <h2>${d.n} · ${esc(d.title)}</h2>
+    <p class="question">${esc(d.q)}</p>
+  </div>
+  <div class="context">
+    <div class="quote"><p class="blocklabel" style="font-style:normal">Entwurfsfassung</p>${esc(d.draft)}</div>
+    <div class="issue"><p class="blocklabel" style="color:var(--red-ink)">Klärungsbedarf</p><ul>${d.issue.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div>
+  </div>
+  <p class="blocklabel">Optionen – wählen</p>
+  <div class="opts" role="group" aria-label="Optionen">${opt('A')}${opt('B')}${opt('C')}</div>
+  <div class="alt">
+    <button class="chip" data-opt="eigene" aria-pressed="${s.choice==='eigene'}">Eigene Fassung</button>
+    <button class="chip vert" data-opt="vertagt" aria-pressed="${s.choice==='vertagt'}">Vertagt</button>
+    ${s.choice?`<button class="chip" data-opt="" aria-pressed="false">Auswahl zurücksetzen</button>`:''}
+  </div>
+  <div class="rec"><span class="pill p-ink">Empfehlung ${d.emp}</span><p>${esc(d.why)}</p></div>
+  <div class="card protocol">
+    <h3>Protokoll</h3>
+    <div class="fields">
+      <div class="full"><label class="f">Entscheidungsweg</label>
+        <div class="seg" role="group">${['Konsens','Konsensieren','Abstimmung'].map(w=>`<button data-weg="${w}" aria-pressed="${s.weg===w}">${w}</button>`).join('')}</div>
+        <div class="votes ${s.weg==='Abstimmung'?'on':''}">
+          <div><label class="f" for="ja-${d.n}">Ja</label><input type="text" inputmode="numeric" id="ja-${d.n}" data-f="ja" value="${esc(s.ja)}"></div>
+          <div><label class="f" for="nein-${d.n}">Nein</label><input type="text" inputmode="numeric" id="nein-${d.n}" data-f="nein" value="${esc(s.nein)}"></div>
+          <div><label class="f" for="enth-${d.n}">Enth.</label><input type="text" inputmode="numeric" id="enth-${d.n}" data-f="enth" value="${esc(s.enth)}"></div>
+        </div>
+      </div>
+      <div class="full"><label class="f" for="tx-${d.n}">Beschlusstext <span class="hint">(bei Empfehlung vorformuliert, frei änderbar · Ersatztext ${d.e})</span></label>
+        <textarea id="tx-${d.n}" data-f="text" style="min-height:120px">${esc(s.text)}</textarea></div>
+      <div class="full"><label class="f" for="nt-${d.n}">Notiz${s.choice==='vertagt'?' (Grund der Vertagung)':''}</label><textarea id="nt-${d.n}" data-f="note">${esc(s.note)}</textarea></div>
+      <div><label class="f" for="who-${d.n}">Verantwortlich</label><input type="text" id="who-${d.n}" data-f="who" value="${esc(s.who)}"></div>
+      <div><label class="f" for="due-${d.n}">Frist</label><input type="text" id="due-${d.n}" data-f="due" value="${esc(s.due)}" placeholder="TT.MM.JJJJ"></div>
+      ${d.legal?`<div class="full legal"><p><b>Rechtliche Prüfung:</b> ${esc(d.legal)}</p>
+        <label><input type="checkbox" data-f="pruef" ${s.pruef?'checked':''}> Prüfauftrag erteilt</label>
+        <input type="text" data-f="pruefWer" value="${esc(s.pruefWer)}" placeholder="an wen?" style="max-width:220px"></div>`:''}
+    </div>
+  </div>
+  <div class="pager"><button class="btn" data-go="prev">Zurück</button><span class="hint" style="align-self:center">Tasten <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> · <kbd>←</kbd> <kbd>→</kbd></span><button class="btn primary" data-go="next">Weiter</button></div>`;
+  return sec;
+}
+
+function choose(d,k){
+  const s=st(d.n);
+  s.choice=k;
+  if(!s.textEdited){
+    if(k===d.emp) s.text=d.besch;
+    else if(k==='A'||k==='B'||k==='C') s.text=`Option ${k}: ${d.o[k][0]}. [Beschlusstext anpassen]`;
+    else if(k==='eigene') s.text='';
+    else s.text='';
+  }
+  save(); rerender(d.n);
+}
+function rerender(n){
+  const d=D.find(x=>x.n===n), old=document.getElementById('v-'+n), y=window.scrollY;
+  const neu=renderDecision(d); neu.classList.add('on'); neu.style.animation='none';
+  old.replaceWith(neu); window.scrollTo(0,y);
+}
+
+function renderSummary(){
+  const done=D.filter(d=>decided(d.n)).length, vert=D.filter(d=>(S.d[d.n]||{}).choice==='vertagt').length;
+  const rows=D.map(d=>{const s=S.d[d.n]||{};const c=s.choice;
+    const lab=!c?'<span class="res none">offen</span>':c==='vertagt'?'<span class="pill p-grey">vertagt</span>':c==='eigene'?'<span class="res">eigene Fassung</span>':`<span class="res">${c}</span>${c===d.emp?' <span class="hint">(Empfehlung)</span>':''}`;
+    return `<tr><td><a href="#${d.n}" data-v="${d.n}">${d.n}</a></td><td>${esc(d.title)}</td><td>${d.emp}</td><td>${lab}</td><td>${esc(s.weg||'')}</td><td>${esc([s.who,s.due].filter(Boolean).join(' · '))}</td></tr>`}).join('');
+  document.getElementById('v-summary').innerHTML=`
+  <div class="eyebrow"><span class="pill p-green">Abschluss</span></div>
+  <h2 style="font-size:34px;margin-bottom:8px">Ergebnisse</h2>
+  <p class="lead" style="margin-top:0">${done} von 18 entschieden${vert?`, ${vert} vertagt`:''}${18-done-vert?`, ${18-done-vert} offen`:''}.</p>
+  <div class="toolbar">
+    <button class="btn primary" id="pdf">Als PDF speichern</button>
+    <button class="btn" id="exp">Sicherung herunterladen (JSON)</button>
+    <label class="btn" for="imp">Sicherung laden<input type="file" id="imp" accept="application/json" hidden></label>
+    <button class="btn" id="reset">Alle Eingaben löschen</button>
+  </div>
+  <table class="sum"><thead><tr><th>Nr.</th><th>Thema</th><th>Empf.</th><th>Ergebnis</th><th>Weg</th><th>Verantwortlich · Frist</th></tr></thead><tbody>${rows}</tbody></table>
+  <p class="hint" style="margin-top:12px">Im Druckdialog „Als PDF speichern“ als Ziel wählen. Das PDF enthält Sitzungsdaten, Übersicht und alle Beschlusstexte.</p>`;
+  document.getElementById('pdf').onclick=()=>{buildReport();window.print()};
+  document.getElementById('exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));a.download='entscheidungen-2026-10-05.json';a.click()};
+  document.getElementById('imp').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const x=JSON.parse(t);if(x&&x.d){S=x;save();renderAll();go('summary')}}catch(_){alert('Datei konnte nicht gelesen werden.')}})};
+  document.getElementById('reset').onclick=()=>{if(confirm('Alle Eingaben in diesem Browser löschen?')){S=blank();save();renderAll();go('intro')}};
+}
+
+function buildReport(){
+  const m=S.meta;
+  const meta=[['Datum',m.datum],['Uhrzeit',m.uhrzeit],['Ort',m.ort],['Moderation',m.moderation],['Protokoll',m.protokoll],['Anwesend',m.anwesend],['Bedeutung der grünen Markierung',m.gruen],['Konsens-Paket',[m.konsens,m.konsensnote].filter(Boolean).join(' – ')]];
+  const lab=(d,s)=>!s.choice?'offen':s.choice==='vertagt'?'vertagt':s.choice==='eigene'?'eigene Fassung':`Option ${s.choice}${s.choice===d.emp?' (Empfehlung)':''}`;
+  let h=`<h1>Protokoll: Entscheidungen zur Endfassung des Leitfadens</h1><p class="small">Anlaufstelle für Diskriminierungsschutz · erstellt ${new Date().toLocaleString('de-DE')}</p>
+  <table class="meta">${meta.map(([a,b])=>`<tr><td>${a}</td><td>${esc(b||'')}</td></tr>`).join('')}</table>
+  <h2>Übersicht</h2><table class="rt"><tr><th>Nr.</th><th>Thema</th><th>Ergebnis</th><th>Weg</th><th>Verantwortlich</th><th>Frist</th><th>Prüfung</th></tr>
+  ${D.map(d=>{const s=S.d[d.n]||{};return `<tr><td>${d.n}</td><td>${esc(d.title)}</td><td>${lab(d,s)}</td><td>${esc(s.weg||'')}${s.weg==='Abstimmung'?` (${esc(s.ja||0)}/${esc(s.nein||0)}/${esc(s.enth||0)})`:''}</td><td>${esc(s.who||'')}</td><td>${esc(s.due||'')}</td><td>${d.legal?(s.pruef?'erteilt'+(s.pruefWer?' an '+esc(s.pruefWer):''):'offen'):'–'}</td></tr>`}).join('')}</table>
+  <h2>Beschlüsse im Wortlaut</h2>`;
+  BLOCKS.forEach(b=>{h+=`<p class="small" style="margin:10pt 0 4pt;font-weight:600">Block ${b.id} · ${esc(b.name)}</p>`;
+    D.filter(d=>d.b===b.id).forEach(d=>{const s=S.d[d.n]||{};
+      h+=`<div class="dec"><h3>${d.n} · ${esc(d.title)} – ${lab(d,s)}</h3>
+      ${s.choice&&['A','B','C'].includes(s.choice)?`<p class="k">Gewählt: ${esc(d.o[s.choice][0])}</p>`:''}
+      <p><b>Beschluss:</b> ${s.text?esc(s.text):'<span class="k">–</span>'}</p>
+      ${s.note?`<p><b>Notiz:</b> ${esc(s.note)}</p>`:''}
+      ${s.weg?`<p class="k">Entscheidungsweg: ${esc(s.weg)}${s.weg==='Abstimmung'?` – Ja ${esc(s.ja||0)}, Nein ${esc(s.nein||0)}, Enthaltungen ${esc(s.enth||0)}`:''}</p>`:''}
+      ${(s.who||s.due)?`<p class="k">Verantwortlich: ${esc(s.who||'–')} · Frist: ${esc(s.due||'–')} · Ersatztext ${d.e}</p>`:`<p class="k">Ersatztext ${d.e}</p>`}
+      ${d.legal?`<p class="k">Rechtliche Prüfung: ${esc(d.legal)} – ${s.pruef?'Prüfauftrag erteilt'+(s.pruefWer?' an '+esc(s.pruefWer):''):'noch nicht erteilt'}</p>`:''}</div>`})});
+  h+=`<p class="small" style="margin-top:14pt">Protokoll erstellt: ______________________ &nbsp;&nbsp; freigegeben: ______________________</p>`;
+  document.getElementById('report').innerHTML=h;
+}
+window.addEventListener('beforeprint',buildReport);
+
+function updateProgress(){
+  const n=D.filter(d=>decided(d.n)).length;
+  document.getElementById('pbar').style.width=(n/18*100)+'%';
+  document.getElementById('ptext').textContent=`${n} von 18 entschieden`;
+  D.forEach(d=>{const el=document.getElementById('dot-'+d.n);if(!el)return;const c=(S.d[d.n]||{}).choice;el.className='dot'+(c==='vertagt'?' later':decided(d.n)?' done':'');el.textContent=decided(d.n)?(c==='eigene'?'✎':c):d.n});
+}
+
+function go(v){
+  if(v==='next') v=VIEWS[Math.min(VIEWS.indexOf(cur)+1,VIEWS.length-1)];
+  if(v==='prev') v=VIEWS[Math.max(VIEWS.indexOf(cur)-1,0)];
+  if(!VIEWS.includes(v)) v='intro';
+  if(v==='summary') renderSummary();
+  cur=v;
+  document.querySelectorAll('section.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.v===v));
+  document.getElementById('mnav').value=v;
+  if(location.hash.slice(1)!==v) history.replaceState(null,'','#'+v);
+  window.scrollTo({top:0});
+}
+
+function renderAll(){
+  renderIntro(); renderSetup();
+  const box=document.getElementById('decisions'); box.innerHTML='';
+  D.forEach(d=>box.appendChild(renderDecision(d)));
+  updateProgress();
+}
+
+// Events
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]'); if(g){e.preventDefault();go(g.dataset.go);return}
+  const a=e.target.closest('a[data-v]'); if(a){e.preventDefault();go(a.dataset.v);return}
+  const o=e.target.closest('[data-opt]'); if(o&&cur.startsWith('D')){const d=D.find(x=>x.n===cur);choose(d,o.dataset.opt);return}
+  const w=e.target.closest('[data-weg]'); if(w){const s=st(cur);s.weg=s.weg===w.dataset.weg?'':w.dataset.weg;save();rerender(cur);return}
+  const gr=e.target.closest('[data-gruen]'); if(gr){S.meta.gruen=gr.dataset.gruen;save();renderSetup();document.getElementById('v-setup').classList.add('on');return}
+  const ko=e.target.closest('[data-konsens]'); if(ko){S.meta.konsens=ko.dataset.konsens;save();renderSetup();document.getElementById('v-setup').classList.add('on');return}
+  if(e.target.id==='theme'){const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY+'-theme',r.dataset.theme)}catch(_){}}
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.dataset.meta){S.meta[t.dataset.meta]=t.value;save();return}
+  if(t.dataset.f&&cur.startsWith('D')){const s=st(cur);
+    if(t.type==='checkbox') s[t.dataset.f]=t.checked; else s[t.dataset.f]=t.value;
+    if(t.dataset.f==='text') s.textEdited=true;
+    save();}
+});
+document.addEventListener('keydown',e=>{
+  if(e.target.closest('input,textarea,select')||e.metaKey||e.ctrlKey||e.altKey) return;
+  if(e.key==='ArrowRight') go('next');
+  else if(e.key==='ArrowLeft') go('prev');
+  else if(cur.startsWith('D')&&/^[abc]$/i.test(e.key)){choose(D.find(x=>x.n===cur),e.key.toUpperCase())}
+});
+
+try{const th=localStorage.getItem(KEY+'-theme');if(th)document.documentElement.dataset.theme=th}catch(_){}
+buildNav(); renderAll(); go(location.hash.slice(1)||'intro');
+</script>
+</body>
+</html>
